@@ -26,8 +26,9 @@ Delete these instructions as you replace them with your code.
 #
 #    Give each function a one-line docstring saying what it does.
 
-# function that returns 'status'
+
 def status_of(percent):
+    """function that returns 'status'"""
     if percent >= 100:
         return("OVER LIMIT")
     elif percent >= 90:
@@ -35,14 +36,14 @@ def status_of(percent):
     else:
         return("OK")
 
-# function that returns difference and percent
 def check(rows_loaded, rows_expected):
+    """function that returns difference and percent"""
     difference = rows_loaded - rows_expected
     percentage = ((rows_loaded/rows_expected)*100)
     return difference, percentage
 
-# function that outputs everything
 def print_report(label, rows_loaded, rows_expected, difference, percentage, status):
+    """function that outputs everything"""
     print(f"rows_loaded      :   {rows_loaded:>10.2f}")
     print(f"rows_expected    :   {rows_expected:>10.2f}")
     print(f"difference       :   {difference:>10.2f}")
