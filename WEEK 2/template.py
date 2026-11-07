@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  : Nunkoo Sufyaan 
+Name  :  Nunkoo Sufyaan 
 Lane  :  AI      
-Date  : 02/10/26
+Date  :  02/10/26
 
 Run it:   python template.py
 
@@ -19,6 +19,7 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
+# Data is asked from the user.
 dataset_name = input ("Enter the dataset name: ")
 rows_loaded = float(input("Enter number of rows loaded: "))
 rows_expected = float (input("Enter number of rows expected: "))
@@ -53,15 +54,23 @@ else:
 #                Keep count of how many came back OVER LIMIT and print that
 #                once, after the loop ends.
 
+# 'quit' is kept in 'end_message' 
 end_message = "quit"
+
+# count_OVERLIMIT keeps count of 'OVER LIMIT" percent
 count_OVERLIMIT = 0
 message = input("enter 'quit' if you want to end the program: ")
+
+# Condition to enter loop(message entered must not be 'quit')
 while message != "quit":
+
     dataset_name = input ("Enter the dataset name: ")
     rows_loaded = float(input("Enter number of rows loaded: "))
     rows_expected = float (input("Enter number of rows expected: "))
+
     difference = rows_loaded - rows_expected
     percent = ((rows_loaded/rows_expected)*100)
+    
     if percent >= 100:
         status = "OVER LIMIT"
         count_OVERLIMIT +=1
@@ -80,8 +89,11 @@ while message != "quit":
     print (f"Percent        :   {percent:>10.2f}%")
     print (f"Status         :   {status:>10}")
     print ("=" * 34)
+
+    # At the end of each cycle, user is asked if he wants program to end or not.
     message = input ("enter 'quit' if you want to end the program: ")
 
+# Number of 'OVER LIMIT' percent is output after the loop ends
 print (count_OVERLIMIT, " records had over limit percentages")
 
 
