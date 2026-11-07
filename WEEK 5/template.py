@@ -25,7 +25,7 @@ Delete these instructions as you replace them with your code.
 
 class Record:
     def __init__(self, dataset_name, rows_loaded, rows_expected):
-        """method that initialises the respective attrubutes to its specific objects"""
+        """method that initialises the respective attributes to its specific objects"""
         self.dataset_name = dataset_name
         self.rows_loaded = rows_loaded
         self.rows_expected = rows_expected
@@ -40,6 +40,7 @@ class Record:
         else:
             return "OK"
 
+    # class-level running total that keeps count of 'OVER LIMIT' percentages.
     over_limit_count = 0
 
 
@@ -55,7 +56,7 @@ class Record:
 # creating my own data file named 'my_own_data_file.txt' and populated with my own data
 with open ("my_own_data_file.txt", "w") as f:
     f.write(f"survey-2009, 84, 3993\n")
-    f.write(f"survey-2010, 2882, 3990\n")
+    f.write(f"survey-2010, 2882, 2990\n")
     f.write(f"survey-2011, 7229, 292\n")
     f.write(f"survey-2012, 822, 89389\n")
     f.write(f"survey-2013, 8412, 39931\n")
@@ -96,6 +97,7 @@ load_records("my_own_data_file.txt")
 
 for record in records:
     print()
+    # Putting borders at top and bottom
     print("=" * 34)
     print(f"  RECORD CHECK  -  {record.dataset_name}")
     print("=" * 34)
@@ -107,6 +109,7 @@ for record in records:
 
     print("=" * 34)
 
+    # Counting the number of 'overlimit'.
     if record.status() == "OVER LIMIT":
         Record.over_limit_count += 1
 
