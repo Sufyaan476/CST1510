@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  : Nunkoo Sufyaan
+Name  :  Nunkoo Sufyaan
 Lane  :  AI       
-Date  : 02/10/26
+Date  :  02/10/26
 
 Run it:   python template.py
 
@@ -21,6 +21,7 @@ Delete these instructions as you replace them with your code.
 #
 #    Remember: input() always gives back text.
 
+# Values are asked from the user.
 dataset_name = input ("Enter the dataset name: ")
 rows_loaded = float(input("Enter number of rows loaded: "))
 rows_expected = float (input("Enter number of rows expected: "))
@@ -34,6 +35,7 @@ rows_expected = float (input("Enter number of rows expected: "))
 #
 #    Do not type the answers. Calculate them.
 
+# Difference and percentage are calculated.
 difference = rows_loaded - rows_expected
 percent = ((rows_loaded/rows_expected)*100)
 
@@ -60,7 +62,7 @@ print (f" Percentage      :    {percent:>10.2f} %")
 print ("=" * 34)
 
 print (f"{percent:.2f} % of the rows loaded were expected for the dataset" , dataset_name) 
-#this statistics is especially useful for data science analysis.
+# This statistics is useful for Data Science Statistics.
 
 # ==========================================================================
 # 4. Before you finish:
