@@ -26,18 +26,22 @@ def check_record(rows_loaded, rows_expected):
     percentage = ((rows_loaded/rows_expected)*100)
     if percentage >=100:
         status = "OVER LIMIT"
+    elif percentage >= 90:
+        status = "WARNING"
     else:
         status = "OK"
     return difference, percentage, status
 
-def print_report(rows_loaded, rows_expected, difference, percentage, status):
+def print_report(dataset_name, rows_loaded, rows_expected, difference, percentage, status):
     """function that outputs everything"""
+    print("=" * 35)
+    print(f"dataset_name     :   {dataset_name:>10}")
     print(f"rows_loaded      :   {rows_loaded:>10.2f}")
     print(f"rows_expected    :   {rows_expected:>10.2f}")
     print(f"difference       :   {difference:>10.2f}")
     print(f"percent          :   {percentage:>10.2f}%")
     print(f"status           :   {status:>10}\n")
-
+    print("=" * 35)
 
 # ====================================================================== STORE
 # 2. Get your records into a list of dicts, each shaped like:
@@ -57,7 +61,7 @@ status = ""
 
 # my own data file named 'my_data_file' has been created and populated with 5 lines of data
 with open("my_data_file.txt","w") as f:
-    f.write(f"survey-2020, 432, 3424\n")
+    f.write(f"survey-2020, 432, 440\n")
     f.write(f"survey-2022, 863, 9793\n")
     f.write(f"survey-2024, 237, 872\n")
     f.write(f"survey-2025, 2772, 822\n")
@@ -93,7 +97,7 @@ with open("new_records.txt", "w") as f:
         difference, percent, status = check_record(records[i]["rows_loaded"], records[i]["rows_expected"])
         if status == "OVER LIMIT":
             count_OVERLIMIT +=1
-        print_report(records[i]["rows_loaded"], records[i]["rows_expected"], difference, percent, status)
+        print_report(records[i]["dataset_name"], records[i]["rows_loaded"], records[i]["rows_expected"], difference, percent, status)
         f.write(f"{records[i]["dataset_name"]}, {status}\n")
 
 
