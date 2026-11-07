@@ -42,7 +42,7 @@ def check(rows_loaded, rows_expected):
     percentage = ((rows_loaded/rows_expected)*100)
     return difference, percentage
 
-def print_report(label, rows_loaded, rows_expected, difference, percentage, status):
+def print_report(rows_loaded, rows_expected, difference, percentage, status):
     """function that outputs everything"""
     print(f"rows_loaded      :   {rows_loaded:>10.2f}")
     print(f"rows_expected    :   {rows_expected:>10.2f}")
@@ -97,7 +97,6 @@ over_limit_count = 0
 message = input("enter 'quit' if you want program to stop or type anything else to continue: ")
 while message != "quit":
 
-    label = input("enter the name of the label: ")
     dataset_name = input("enter the dataset name: ")
     rows_loaded = float (input("enter the number of rows loaded: "))
     rows_expected = float(input("enter the number of rows expected: "))
@@ -110,10 +109,10 @@ while message != "quit":
 
     print()
     print("=" * 34)
-    print(f"  RECORD CHECK  -  {label}")
+    print(f"  RECORD CHECK  -  {dataset_name}")
     print("=" * 34)
 
-    print_report(label, rows_loaded, rows_expected, difference, percentage, status)
+    print_report(rows_loaded, rows_expected, difference, percentage, status)
 
     print("=" * 34)
 
