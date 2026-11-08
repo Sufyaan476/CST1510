@@ -62,7 +62,7 @@ print (f" Percentage      :    {percent:>10.2f} %")
 print ("=" * 34)
 
 print (f"{percent:.2f} % of the rows loaded were expected for the dataset" , dataset_name) 
-# This statistics is useful for Data Science Statistics.
+# This statistics is useful for Data Science analysis.
 
 # ==========================================================================
 # 4. Before you finish:
